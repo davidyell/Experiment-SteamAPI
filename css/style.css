@@ -1,0 +1,53 @@
+@import url(http://fonts.googleapis.com/css?family=Fauna+One);
+html, body {
+  color: #fff;
+  background-color: #ccc; }
+
+#content {
+  width: 960px;
+  margin: 0 auto; }
+
+nav {
+  height: 32px;
+  background-color: #1e6c91; }
+  nav ul {
+    padding: 0; }
+    nav ul li {
+      float: left; }
+      nav ul li.active a {
+        background-color: #6e9baf; }
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 5px 10px;
+        display: inline-block;
+        text-shadow: 0 1px 0 #000; }
+
+h1, h2 {
+  font-family: 'Fauna One', Times, serif; }
+
+h1 {
+  font-size: 24px;
+  color: #333; }
+
+table {
+  width: 960px;
+  margin: 0 auto;
+  background-color: #333; }
+  table tr th {
+    cursor: pointer;
+    font: 20px 'Fauna One', Times, serif; }
+  table tr td {
+    color: #fff;
+    padding: 5px; }
+  table tr.alt td {
+    background-color: #474747; }
+
+.btn {
+  border: 1px solid #648419;
+  border-radius: 4px;
+  background-color: #83ad22;
+  box-shadow: 0 1px 0 black;
+  padding: 8px 16px;
+  color: #fff;
+  text-decoration: none; }

@@ -1,0 +1,7 @@
+[keys]
+api_key = '123456abcde'
+steam_id = '123456'
+
+[endpoints]
+recentlyPlayed = "http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=%s&steamid=%s"
+getOwnedGames = "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=%s&steamid=%s&include_played_free_games=1&include_appinfo=1"
