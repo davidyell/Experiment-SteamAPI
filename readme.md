@@ -9,6 +9,6 @@ The easiest way to get your 64bit Steam ID, is to load your profile page as XML.
 For example, [http://steamcommunity.com/id/neon1024/?xml=1](http://steamcommunity.com/id/neon1024/?xml=1)
 
 ##API Documentation
-http://steamcommunity.com/dev
-https://developer.valvesoftware.com/wiki/Steam_Web_API
-https://partner.steamgames.com/documentation/community_data
+http://steamcommunity.com/dev  
+https://developer.valvesoftware.com/wiki/Steam_Web_API  
+https://partner.steamgames.com/documentation/community_data  
