@@ -38,8 +38,9 @@ $data = json_decode($response);
 
     <nav>
         <ul>
-            <li class="<?php echo (isset($_GET['getOwnedGames']) || !isset($_GET['recentlyPlayed']))? 'active' : '';?>"><a href="?getOwnedgames" title="Games owned">Games owned</a></li>
+            <li class="<?php echo (isset($_GET['getOwnedGames']) || !isset($_GET) )? 'active' : '';?>"><a href="?getOwnedgames" title="Games owned">Games owned</a></li>
             <li class="<?php echo (isset($_GET['recentlyPlayed']))? 'active' : '';?>"><a href="?recentlyPlayed" title="Played recently">Played recently</a></li>
+            <li class="<?php echo (isset($_GET['unplayed']))? 'active' : '';?>"><a href="?unplayed" title="Unplayed/Untracked">Unplayed/Untracked</a></li>
         </ul>
     </nav>
 
@@ -54,26 +55,30 @@ $data = json_decode($response);
         <tbody>
         <?php
         foreach ($data->response->games as $k => $game) {
-            ?>
-            <tr <?php if ($k % 2 == 0) { echo "class='alt'"; };?>>
-                <td data-sort-value="<?php echo $game->name;?>">
-                    <?php if (!empty($game->img_icon_url)): ?>
-                        <img src='http://media.steampowered.com/steamcommunity/public/images/apps/<?php echo $game->appid;?>/<?php echo $game->img_icon_url;?>.jpg'>
-                    <?php endif; ?>
-                </td>
-                <td data-sort-value="<?php echo $game->name;?>"><?php echo $game->name;?></td>
-                <td data-sort-value="<?php echo (isset($game->playtime_forever)) ? $game->playtime_forever : 0 ;?>"><?php
-                if (isset($game->playtime_forever)) {
-                    $hours = floor($game->playtime_forever / 60);
-                    $mins = $game->playtime_forever % 60;
-                    echo $hours."h ".$mins."m";
-                } else {
-                    echo "No time logged";
-                }
-                ?></td>
-                <td><a class="btn" href="steam://run/<?php echo $game->appid;?>" title="Play <?php echo $game->name;?>">Play</a></td>
-            </tr>
-            <?php
+            if (isset($_GET['unplayed']) && isset($game->playtime_forever)) {
+                continue;
+            } else {
+                ?>
+                <tr <?php if ($k % 2 == 0) { echo "class='alt'"; };?>>
+                    <td data-sort-value="<?php echo $game->name;?>">
+                        <?php if (!empty($game->img_icon_url)): ?>
+                            <img src='http://media.steampowered.com/steamcommunity/public/images/apps/<?php echo $game->appid;?>/<?php echo $game->img_icon_url;?>.jpg'>
+                        <?php endif; ?>
+                    </td>
+                    <td data-sort-value="<?php echo $game->name;?>"><?php echo $game->name;?></td>
+                    <td data-sort-value="<?php echo (isset($game->playtime_forever)) ? $game->playtime_forever : 0 ;?>"><?php
+                    if (isset($game->playtime_forever)) {
+                        $hours = floor($game->playtime_forever / 60);
+                        $mins = $game->playtime_forever % 60;
+                        echo $hours."h ".$mins."m";
+                    } else {
+                        echo "No time logged";
+                    }
+                    ?></td>
+                    <td><a class="btn" href="steam://run/<?php echo $game->appid;?>" title="Play <?php echo $game->name;?>">Play</a></td>
+                </tr>
+                <?php
+            }
         }
         ?>
         </tbody>
