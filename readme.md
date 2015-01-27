@@ -10,5 +10,6 @@ For example, [http://steamcommunity.com/id/neon1024/?xml=1](http://steamcommunit
 
 ##API Documentation
 http://steamcommunity.com/dev  
+https://steamcommunity.com/dev/apikey  
 https://developer.valvesoftware.com/wiki/Steam_Web_API  
 https://partner.steamgames.com/documentation/community_data  
